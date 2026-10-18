@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="#home"><sup>01</sup>// home</a>
+    <a href="#expertise"><sup>02</sup>// expertise</a>
+    <a href="#work"><sup>03</sup>// work</a>
+    <a href="#experience"><sup>04</sup>// experience</a>
+    <a href="#contact"><sup>05</sup>// contact</a>
+  </nav>
+
+  <header id="home" class="hero">
+    <h1 class="hero__name" data-name></h1>
+  </header>
+
+  <!-- ── My Expertise ── -->
+  <section id="expertise" class="section expertise">
+    <h2 class="section__title reveal">My Expertise</h2>
+    <div class="expertise__grid" data-expertise></div>
+  </section>
+
+  <!-- ── My Work ── -->
+  <section id="work" class="section work">
+    <div class="work__top">
+      <div class="reveal">
+        <h2 class="work__title">My<br />Work</h2>
+        <p class="work__intro" data-work-intro></p>
+      </div>
+      <div class="featured reveal" data-featured></div>
+    </div>
+
+    <div class="filters" data-filters role="tablist" aria-label="Filter projects"></div>
+    <div class="projects" data-projects></div>
+  </section>
+
+  <!-- ── Professional Experience ── -->
+  <section id="experience" class="section experience">
+    <h2 class="section__title reveal">Professional<br />Experience</h2>
+    <div class="exp-list" data-experience></div>
+  </section>
+
+  <!-- ── Contact + Recommendations ── -->
+  <section id="contact" class="contact">
+    <div class="contact__info" data-contact></div>
+    <div class="testimonials" data-testimonials></div>
+  </section>
+
+  <a href="#home" class="to-top" aria-label="Back to top">↑</a>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
