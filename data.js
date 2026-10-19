@@ -1,125 +1,177 @@
 // ─────────────────────────────────────────────────────────────
 //  EDIT THIS FILE — all your portfolio content lives here.
-//  index.html / script.js render it; you shouldn't need to touch them.
+//  Empty strings ("") are simply hidden on the page.
+//  Search for "TODO" to find what still needs your real data.
 // ─────────────────────────────────────────────────────────────
 
 window.PORTFOLIO = {
-  name: "Your Name",
+  name: "Vankaa",
+  fullName: "Muchamad Zovanka Al-Maizani",
+  tagline: "Philosophy student building at the intersection of psychology, philosophy and AI.",
 
-  // ── My Expertise ── (3 cards look best; 2–6 also work)
-  // icon: "code" | "layout" | "mobile" | "data" | "design" | "server"
+  // ── My Expertise ──
+  // icon: "code" | "layout" | "mobile" | "data" | "design" | "server" | "book"
   expertise: [
     {
       icon: "code",
       title: "Software Development",
-      body: "Write a sentence about the languages and paradigms you're strongest in.",
+      sub: "Python",
+      body: "I write Python from first principles: data structures, algorithms and clean CLI programs, often without external libraries so the logic stays visible.",
     },
     {
       icon: "layout",
-      title: "Frontend Dev",
-      sub: "React, Next.js",
-      body: "Describe your frontend experience: years, frameworks, what you care about.",
+      title: "Web Prototyping",
+      sub: "PWA, AI-assisted development",
+      body: "I design and ship web prototypes with AI coding tools, focusing on features people would actually use every day.",
     },
     {
-      icon: "design",
-      title: "UI / UX Design",
-      sub: "Figma",
-      body: "A third area of expertise. Swap the icon and text to match what you do.",
+      icon: "book",
+      title: "Research and Writing",
+      sub: "Philosophy, Psychology",
+      body: "I study epistemology, philosophy of mind and human behavior, and write essays on identity, freedom and agency.",
     },
   ],
 
   // ── My Work ──
   workIntro:
-    "A short paragraph about the kind of work you've shipped, who you've worked with, and what you're interested in next.",
+    "I build small, focused tools that start from a real human question: how people learn, connect and make sense of things. My projects range from Python programs and data experiments to research essays on AI and society. Next, I want to work on language technology for underrepresented languages and on tools informed by how people actually think.",
 
   featured: {
     label: "Featured Project",
     title: "Tarseekh App",
-    // Phone screen is exactly 390×844 pt — use a 1170×2532 px (@3x) or 390×844 px screenshot
-    // so it maps 1:1 with no crop/stretch. Captured from https://tarseekh.vercel.app
+    description:
+      "A daily Quran companion for the Musabaqah Desain Aplikasi Al-Qur'an competition. Features a tajwid reading mode, highlight-to-ask AI tafsir, a recitation tracker, spaced-repetition memorization (SM-2) and daily quests.",
+    // Phone screen is exactly 390×844 pt — use a 1170×2532 px (@3x) screenshot so it maps 1:1.
     image: "img/tarseekh-live.png",
-    url: "https://tarseekh.vercel.app",
+    url: "https://tarseekh.vercel.app/",
   },
 
-  // category must match one of the filters below (case-sensitive)
+  // Filter order. "All" is added automatically.
+  categories: ["Software", "Research", "Writing"],
+
+  // status: "completed" | "in progress" | "published"
+  // image: leave "" to get an auto-generated text cover
   projects: [
-    { title: "Project One", category: "Web Development", image: "", url: "#" },
-    { title: "Project Two", category: "Web Development", image: "", url: "#" },
-    { title: "Project Three", category: "UI/UX Design", image: "", url: "#" },
-    { title: "Project Four", category: "Web Development", image: "", url: "#" },
-    { title: "Project Five", category: "Data Visualization", image: "", url: "#" },
-    { title: "Project Six", category: "UI/UX Design", image: "", url: "#" },
+    {
+      title: "Temu",
+      category: "Software",
+      description:
+        "Python CLI that recommends campus student clubs from interest ratings, with vote percentages and consent-based member matching. Built around the idea of social capital.",
+      url: "https://github.com/vankaaism/ukmrecommender",
+      image: "", // TODO
+      status: "completed",
+    },
+    {
+      title: "Calibry",
+      category: "Software",
+      description: "CLI that derives calorie formulas from the Fitbit Kaggle dataset and tests them against my own Garmin data.",
+      url: "https://github.com/vankaaism/colibry",
+      image: "", // TODO
+      status: "in progress",
+    },
+    {
+      title: "TariCap",
+      category: "Software",
+      description:
+        "Computer-vision motion capture that turns traditional dance movement into animation, as a case for digitizing cultural heritage.",
+      url: "", // TODO
+      image: "", // TODO
+      status: "in progress",
+    },
+    {
+      title: "Matrices in EEG Emotion Recognition",
+      category: "Research",
+      description:
+        "Analysis of how SPD matrices are used in Wang et al. (2021), a Pattern Recognition paper on EEG emotion recognition.",
+      url: "", // TODO
+      image: "", // TODO
+      status: "completed",
+    },
+    {
+      title: "AI for Regional Languages",
+      category: "Research",
+      description:
+        "Proposal essay on using AI for low-resource Indonesian regional languages to widen access to opportunity in 3T areas.",
+      url: "", // TODO
+      image: "", // TODO
+      status: "in progress",
+    },
+    {
+      title: "I've killed some versions of myself to be this calm.",
+      category: "Writing",
+      description: "A personal essay on freedom, agency and following an imposed direction.",
+      url: "", // TODO: Medium link
+      image: "", // TODO
+      status: "published",
+    },
   ],
 
-  // ── Professional Experience ── (first one opens by default)
-  // logo: "img/company.png" — leave empty to show the company's initials
+  // ── Experience ──
+  experienceTitle: "Education and Activities",
+  // First entry opens by default. logo: "img/x.png" or "" to show `initials`.
   experience: [
+    // TODO: add your internship here as the first entry, e.g.
+    // { role: "", company: "", period: "", location: "", website: "", description: "", tags: [], logo: "", initials: "" },
     {
-      role: "Job Title",
-      company: "Company Name",
-      period: "2023 - Present",
-      location: "City, Country",
-      website: "company.com",
-      description: "One or two sentences on what you built or led here and the impact it had.",
-      tags: ["React", "Next.js", "TypeScript"],
+      role: "Philosophy Student",
+      company: "Universitas Indonesia",
+      period: "2025 - Present",
+      location: "Depok, Indonesia",
+      website: "https://www.ui.ac.id/",
+      description:
+        "Studying hermeneutics, phenomenology, philosophy of knowledge and modern philosophy, with a focus on epistemology and philosophy of mind.",
+      tags: ["Philosophy", "Epistemology", "Hermeneutics"],
       logo: "",
+      initials: "UI",
     },
     {
-      role: "Previous Role",
-      company: "Previous Company",
-      period: "2021 - 2023",
-      location: "Remote",
-      website: "previous.com",
-      description: "What you were responsible for, and something you're proud of.",
-      tags: ["Figma", "UI/UX", "CSS"],
+      role: "AI Student",
+      company: "Cakrawala University",
+      period: "Present", // TODO: start year, e.g. "2024 - Present"
+      location: "Jakarta, Indonesia",
+      website: "", // TODO
+      description: "Building foundations in programming, linear algebra, discrete math and computer architecture.",
+      tags: ["Python", "Linear Algebra", "AI"],
       logo: "",
+      initials: "CU",
     },
     {
-      role: "Freelance Developer",
-      company: "Self-employed",
-      period: "2019 - Present",
-      location: "Remote",
-      website: "",
-      description: "The kinds of clients and projects you take on as a freelancer.",
-      tags: ["Web", "Mobile"],
+      role: "Psychology Coursework",
+      company: "", // TODO: institution / platform
+      period: "Present", // TODO: start year
+      location: "Online",
+      website: "", // TODO
+      description:
+        "Courses in social psychology, communication psychology, health psychology, abnormal psychology and Islamic counseling.",
+      tags: ["Psychology", "Cognition"],
       logo: "",
+      initials: "", // TODO (falls back to initials of the role)
     },
   ],
 
-  // ── Contact / Available for freelance ──
+  // ── Contact ──
   contact: {
-    heading: "Available for select freelance opportunities",
-    text: "Have an exciting project you need help with?\nSend me an email or contact me via instant message!",
-    email: "you@example.com",
+    status: "Open to collaborations, research projects and hackathon teams",
+    heading: "Working on something at the edge of people and technology?",
+    text: "Send me an email or reach out on any of these.",
+    email: "", // TODO
     links: [
-      { label: "LinkedIn", url: "https://linkedin.com/in/" },
-      { label: "Instagram", url: "https://instagram.com/" },
-      { label: "Github", url: "https://github.com/" },
-      { label: "WhatsApp", url: "https://wa.me/" },
+      { label: "LinkedIn", url: "" }, // TODO
+      { label: "Instagram", url: "" }, // TODO
+      { label: "Github", url: "https://github.com/vankaaism" },
+      { label: "Medium", url: "" }, // TODO
     ],
   },
 
-  // ── Recommendations ── (exactly 3: first is the tall card on the left)
-  // photo: "img/person.jpg" — leave empty to show initials
+  // ── Recommendations ── (1–3; layout adapts to how many you have)
   testimonials: [
     {
       quote:
-        "A longer recommendation goes here, since it gets the tall card. Ask a past client or manager what it was like to work with you: how you communicated, how you handled problems, and what impact your work had on their team or business.",
-      name: "Person One",
-      title: "Founder at Company",
+        "I highly recommend Zovanka. As an intern, he demonstrates strong self-leadership and rapid learning agility in response to dynamic project demands. His solid time management makes him a reliable asset to any team.",
+      name: "Khusnul Fatonah",
+      title: "", // TODO: exact title from LinkedIn
       photo: "",
-    },
-    {
-      quote: "A short, punchy recommendation. One or two lines works best in this card.",
-      name: "Person Two",
-      title: "Role | Role | Role",
-      photo: "",
-    },
-    {
-      quote: "A medium-length recommendation about your skills, communication, and how you plan complex projects.",
-      name: "Person Three",
-      title: "CEO at Company",
-      photo: "",
+      initials: "KF",
     },
   ],
 };
