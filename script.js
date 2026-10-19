@@ -21,11 +21,11 @@
   $("[data-name]").textContent = D.name;
 
   // ── Expertise ──
-  const accents = ["#fcb3bf", "#66d9ed", "#9b37ff", "#f6a04d"];
+
   $("[data-expertise]").innerHTML = D.expertise
     .map(
       (e, i) => `
-      <article class="exp-card reveal" style="--accent:${accents[i % accents.length]}">
+      <article class="exp-card reveal">
         <div class="exp-card__head">
           ${icon(e.icon)}
           <h3 class="exp-card__title"><span>${esc(e.title)}</span>${e.sub ? `<span>${esc(e.sub)}</span>` : ""}</h3>
