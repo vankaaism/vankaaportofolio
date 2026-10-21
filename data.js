@@ -106,46 +106,39 @@ window.PORTFOLIO = {
     },
   ],
 
-  // ── Experience ──
-  experienceTitle: "Education and Activities",
+  // ── Professional Experience ──
+  experienceTitle: "Professional Experience",
   // First entry opens by default. logo: "img/x.png" or "" to show `initials`.
+  // award: optional { title, text } shown as a highlighted callout.
   experience: [
-    // TODO: add your internship here as the first entry, e.g.
-    // { role: "", company: "", period: "", location: "", website: "", description: "", tags: [], logo: "", initials: "" },
     {
-      role: "Philosophy Student",
-      company: "Universitas Indonesia",
-      period: "2025 - Present",
-      location: "Depok, Indonesia",
-      website: "https://www.ui.ac.id/",
-      description:
-        "Studying hermeneutics, phenomenology, philosophy of knowledge and modern philosophy, with a focus on epistemology and philosophy of mind.",
-      tags: ["Philosophy", "Epistemology", "Hermeneutics"],
-      logo: "",
-      initials: "UI",
+      role: "Program Management Staff",
+      company: "Pemimpin.id",
+      type: "Internship",
+      period: "Mar 2026 - Jul 2026",
+      location: "Indonesia · Hybrid",
+      website: "", // TODO: e.g. "pemimpin.id"
+      description: "", // TODO: one or two sentences on what you did in the program team
+      award: {
+        title: "Best Program Development Staff",
+        text: "Recognized for outstanding contributions to the development and management of Negarawan.id programs.",
+      },
+      tags: ["Program Management", "Program Development"],
+      logo: "", // TODO: img/pemimpin.png
+      initials: "P",
     },
     {
-      role: "AI Student",
-      company: "Cakrawala University",
-      period: "Present", // TODO: start year, e.g. "2024 - Present"
-      location: "Jakarta, Indonesia",
-      website: "", // TODO
-      description: "Building foundations in programming, linear algebra, discrete math and computer architecture.",
-      tags: ["Python", "Linear Algebra", "AI"],
-      logo: "",
-      initials: "CU",
-    },
-    {
-      role: "Psychology Coursework",
-      company: "", // TODO: institution / platform
-      period: "Present", // TODO: start year
-      location: "Online",
+      role: "Practicum Assistant Trainee",
+      company: "Enterprise System Engineering Laboratory",
+      type: "Internship",
+      period: "Feb 2025 - Jun 2025",
+      location: "Bandung · On-site",
       website: "", // TODO
       description:
-        "Courses in social psychology, communication psychology, health psychology, abnormal psychology and Islamic counseling.",
-      tags: ["Psychology", "Cognition"],
-      logo: "",
-      initials: "", // TODO (falls back to initials of the role)
+        "Facilitating hands-on learning in ERP, Information Systems, and Decision Analysis to bridge theory with real-world applications.",
+      tags: ["Curriculum Design and Adaptation", "Problem-Solving in Complex Teams"], // TODO: + the other 2 skills from LinkedIn
+      logo: "", // TODO: img/ensyse.png
+      initials: "ES",
     },
   ],
 

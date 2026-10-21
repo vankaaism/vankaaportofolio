@@ -117,6 +117,8 @@
 
   // ── Experience (accordion; native <details name> = only one open at a time) ──
   if (D.experienceTitle) $("[data-experience-title]").textContent = D.experienceTitle;
+  const BRIEF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 3h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4V5a2 2 0 0 1 2-2zm0 3h4V5h-4v1z"/></svg>';
+  const TROPHY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V18h3v3H8v-3h3v-3.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3zm0 4H6v1a2 2 0 0 0 1 1.7V7zm10 0v2.7A2 2 0 0 0 18 8V7h-1z"/></svg>';
   const PIN = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>';
   const LINK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm4 4v2h4.6L7 15.6 8.4 17 15 10.4V15h2V7H9z"/></svg>';
   $("[data-experience]").innerHTML = (D.experience || [])
@@ -132,9 +134,11 @@
           <div class="exp__main">
             <div class="exp__meta">
               ${x.location ? `<span>${PIN}${esc(x.location)}</span>` : ""}
+              ${x.type ? `<span>${BRIEF}${esc(x.type)}</span>` : ""}
               ${x.website ? `<a href="https://${esc(host(x.website))}" target="_blank" rel="noopener">${LINK}${esc(host(x.website))}</a>` : ""}
             </div>
-            <p class="exp__desc">${esc(x.description)}</p>
+            ${x.description ? `<p class="exp__desc">${esc(x.description)}</p>` : ""}
+            ${x.award ? `<div class="exp__award">${TROPHY}<div><strong>${esc(x.award.title)}</strong>${x.award.text ? `<p>${esc(x.award.text)}</p>` : ""}</div></div>` : ""}
             <ul class="exp__tags">${(x.tags || []).map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
           </div>
           <div class="exp__logo">${x.logo ? `<img src="${esc(x.logo)}" alt="${esc(x.company)} logo" />` : `<span>${esc(x.initials || initials(x.company || x.role))}</span>`}</div>
