@@ -124,7 +124,7 @@ window.PORTFOLIO = {
         text: "Recognized for outstanding contributions to the development and management of Negarawan.id programs.",
       },
       tags: ["Program Management", "Program Development"],
-      logo: "", // TODO: img/pemimpin.png
+      logo: "img/pemimpin.jpg",
       initials: "P",
     },
     {
@@ -137,7 +137,8 @@ window.PORTFOLIO = {
       description:
         "Facilitating hands-on learning in ERP, Information Systems, and Decision Analysis to bridge theory with real-world applications.",
       tags: ["Curriculum Design and Adaptation", "Problem-Solving in Complex Teams"], // TODO: + the other 2 skills from LinkedIn
-      logo: "", // TODO: img/ensyse.png
+      logo: "img/ensyse.jpg",
+      logoFit: "contain", // "contain" adds padding for wide logos; omit to fill the circle
       initials: "ES",
     },
   ],
@@ -163,7 +164,7 @@ window.PORTFOLIO = {
         "I highly recommend Zovanka. As an intern, he demonstrates strong self-leadership and rapid learning agility in response to dynamic project demands. His solid time management makes him a reliable asset to any team.",
       name: "Khusnul Fatonah",
       title: "", // TODO: exact title from LinkedIn
-      photo: "",
+      photo: "img/khusnul.jpg",
       initials: "KF",
     },
   ],

@@ -141,7 +141,7 @@
             ${x.award ? `<div class="exp__award">${TROPHY}<div><strong>${esc(x.award.title)}</strong>${x.award.text ? `<p>${esc(x.award.text)}</p>` : ""}</div></div>` : ""}
             <ul class="exp__tags">${(x.tags || []).map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
           </div>
-          <div class="exp__logo">${x.logo ? `<img src="${esc(x.logo)}" alt="${esc(x.company)} logo" />` : `<span>${esc(x.initials || initials(x.company || x.role))}</span>`}</div>
+          <div class="exp__logo${x.logoFit === "contain" ? " exp__logo--contain" : ""}">${x.logo ? `<img src="${esc(x.logo)}" alt="${esc(x.company)} logo" />` : `<span>${esc(x.initials || initials(x.company || x.role))}</span>`}</div>
         </div>
       </details>`
     )
