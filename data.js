@@ -176,7 +176,7 @@ window.PORTFOLIO = {
       quote:
         "I highly recommend Zovanka. As an intern, he demonstrates strong self-leadership and rapid learning agility in response to dynamic project demands. His solid time management makes him a reliable asset to any team.",
       name: "Khusnul Fatonah",
-      title: "", // TODO: exact title from LinkedIn
+      title: "Impact Strategy, Advisory & Delivery | Education, Innovation & Sustainability",
       photo: "img/khusnul.jpg",
       initials: "KF",
     },
