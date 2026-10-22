@@ -128,6 +128,19 @@ window.PORTFOLIO = {
       initials: "P",
     },
     {
+      role: "Audience Sustainability Manager",
+      company: "TEDxTelkom University",
+      type: "Volunteer · Social Services",
+      period: "Dec 2024 - Jul 2025",
+      location: "", // TODO: e.g. "Bandung · On-site"
+      website: "", // TODO
+      description:
+        "TEDx Telkom University Volunteer, driving innovation and community impact. Facilitated interdisciplinary discussions, empowering students and fostering creative, sustainable solutions.",
+      tags: ["Community Engagement", "Facilitation", "Event Management"],
+      logo: "img/tedx.png",
+      initials: "TX",
+    },
+    {
       role: "Practicum Assistant Trainee",
       company: "Enterprise System Engineering Laboratory",
       type: "Internship",
