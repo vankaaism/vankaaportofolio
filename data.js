@@ -73,8 +73,8 @@ window.PORTFOLIO = {
       title: "TariCap",
       category: "Software",
       description:
-        "Computer-vision motion capture that turns traditional dance movement into animation, as a case for digitizing cultural heritage.",
-      url: "", // TODO
+        "A demonstration of how technology can support cultural preservation: computer-vision motion capture that turns traditional dance movement into animation.",
+      url: "https://github.com/vankaaism/motion_capture_humdig", // repo name: motion_capture_humdig
       image: "", // TODO
       status: "in progress",
     },
