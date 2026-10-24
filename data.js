@@ -9,6 +9,42 @@ window.PORTFOLIO = {
   fullName: "Muchamad Zovanka Al-Maizani",
   tagline: "Philosophy student building at the intersection of psychology, philosophy and AI.",
 
+  // ── Hero ── "Hi, I'm [avatar] Vankaa!" / "I'm a <role> at" / "<org>." [status]
+  hero: {
+    avatar: "", // TODO: "img/me.jpg" (square photo) — shows "V" until then
+    role: "Philosophy Student",
+    org: "Universitas Indonesia.",
+    status: "Open to collaborate",
+    ctaLabel: "Get in touch",
+    ctaHref: "#contact",
+    ctaText: "Feel free to explore my portfolio and reach out\n— I'd love to connect!",
+  },
+
+  // ── Hero cards ── (placeholders — change the insides later)
+  // "My Experience" card is filled automatically from `experience` below.
+  playlist: {
+    title: "Playlist Title", // TODO
+    url: "", // TODO: Spotify link
+    covers: ["", "", ""], // TODO: 3 square album images, center one is index 1
+  },
+  reading: {
+    title: "Book Title", // TODO
+    author: "Author Name", // TODO
+    cover: "", // TODO: "img/book.jpg"
+  },
+  map: {
+    city: "Depok",
+    country: "Indonesia",
+    coords: "6.36° S, 106.83° E",
+  },
+  howIWork: [
+    { title: "Start from a question", text: "Every project begins with a real human question: how people learn, connect or make sense of things." },
+    { title: "Read the theory", text: "I look at what philosophy and psychology already say, so the build rests on more than intuition." },
+    { title: "Build the smallest version", text: "A focused prototype in Python or on the web, small enough that the logic stays visible." },
+    { title: "Test with real data", text: "I check the idea against real people and real data, including my own, before trusting it." },
+    { title: "Reflect and write", text: "I write up what worked, what didn't and what it says about the original question." },
+  ],
+
   // ── My Expertise ──
   // icon: "code" | "layout" | "mobile" | "data" | "design" | "server" | "book"
   expertise: [
