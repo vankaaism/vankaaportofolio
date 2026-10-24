@@ -70,7 +70,7 @@ window.PORTFOLIO = {
       status: "in progress",
     },
     {
-      title: "TariCap",
+      title: "LesTari", // lestari (preserved) + tari (dance)
       category: "Software",
       description:
         "A demonstration of how technology can support cultural preservation: computer-vision motion capture that turns traditional dance movement into animation.",
