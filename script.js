@@ -35,41 +35,7 @@
     .map((x) => `<li><strong>${esc(x.role)}${x.company ? ` at ${esc(x.company)}` : ""}</strong><span>${esc([x.period, x.type].filter(Boolean).join(" · "))}</span></li>`)
     .join("");
 
-  const PL = D.playlist || {};
-  const plCovers = (PL.covers || ["", "", ""]).slice(0, 3)
-    .map((c, i) => `<div class="pl__cover pl__cover--${i}">${c ? `<img src="${esc(c)}" alt="" />` : ""}</div>`)
-    .join("");
-
-  const RD = D.reading || {};
-  const MP = D.map || {};
   const steps = D.howIWork || [];
-
-  // deterministic street-grid "map" for the map card: a few districts with their own grid angle,
-  // plus curved arterial roads and a river
-  const mapSvg = (() => {
-    let seed = 11;
-    const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
-    const grid = (angle, gapMin, gapMax) => {
-      let d = "";
-      for (let x = -200; x < 500; x += gapMin + rnd() * (gapMax - gapMin)) d += `M${x.toFixed(1)} -200V500`;
-      for (let y = -200; y < 500; y += gapMin + rnd() * (gapMax - gapMin)) d += `M-200 ${y.toFixed(1)}H500`;
-      return `<path d="${d}" transform="rotate(${angle} 150 150)" />`;
-    };
-    return `<svg class="map__svg" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <clipPath id="mA"><path d="M0 0H170L130 140L0 190Z" /></clipPath>
-        <clipPath id="mB"><path d="M170 0H300V170L130 140Z" /></clipPath>
-        <clipPath id="mC"><path d="M0 190L130 140L300 170V300H0Z" /></clipPath>
-      </defs>
-      <g class="map__thin">
-        <g clip-path="url(#mA)">${grid(14, 9, 18)}</g>
-        <g clip-path="url(#mB)">${grid(-22, 10, 20)}</g>
-        <g clip-path="url(#mC)">${grid(4, 8, 16)}</g>
-      </g>
-      <path class="map__river" d="M-10 232 C 50 200, 95 262, 160 236 S 250 190, 320 214" />
-      <path class="map__road" d="M0 190L130 140L300 170 M170 0L130 140 M-10 60 C 80 70, 140 40, 310 90 M40 300 C 70 220, 60 160, 110 -10 M230 300 C 220 240, 260 200, 310 120" />
-    </svg>`;
-  })();
 
   $("[data-hero]").innerHTML = `
     <div class="hi">
@@ -91,34 +57,13 @@
         <div class="tl"><ul class="tl__list">${expItems}${expItems.replace(/<li>/g, '<li aria-hidden="true">')}</ul></div>
       </article>
 
-      <article class="card card--pl">
-        ${cardPill("My Playlist")}
-        <div class="pl__fan">${plCovers}</div>
-        <div class="pl__meta">
-          <strong>${esc(PL.title)}</strong>
-          ${PL.url ? `<a href="${esc(PL.url)}" target="_blank" rel="noopener">▶ Play on Spotify</a>` : `<span>▶ Play on Spotify</span>`}
-        </div>
-      </article>
-
-      <article class="card card--rd">
-        ${cardPill("What I'm reading")}
-        <div class="rd__text"><strong>${esc(RD.title)}</strong><span>${esc(RD.author)}</span></div>
-        <div class="rd__book">${RD.cover ? `<img src="${esc(RD.cover)}" alt="${esc(RD.title)} cover" />` : `<span>${esc(RD.title)}</span>`}</div>
-      </article>
-
-      <article class="card card--map">
-        ${cardPill("Map")}
-        ${mapSvg}
-        <div class="map__label"><strong>${esc(MP.city)}</strong><span>${esc(MP.country)}</span><small>${esc(MP.coords)}</small></div>
-      </article>
-
       <article class="card card--how">
         ${cardPill("How I work")}
         <div class="how__body">
-          ${steps.map((st, i) => `<div class="how__panel" data-step="${i}" ${i ? "hidden" : ""}><h3>${String(i + 1).padStart(2, "0")} ${esc(st.title)}</h3><p>${esc(st.text)}</p></div>`).join("")}
+          ${steps.map((st, i) => `<div class="how__panel" data-step="${i}" ${i ? "hidden" : ""}><h3><span class="how__num">${String(i + 1).padStart(2, "0")}</span> ${esc(st.title)}</h3><p>${esc(st.text)}</p></div>`).join("")}
         </div>
         <div class="how__tabs" role="tablist">
-          ${steps.map((_, i) => `<button role="tab" data-step="${i}" aria-selected="${i === 0}">Step ${String(i + 1).padStart(2, "0")}</button>`).join("")}
+          ${steps.map((st, i) => `<button role="tab" data-step="${i}" aria-selected="${i === 0}">${esc(steps[i].label || `Step ${String(i + 1).padStart(2, "0")}`)}</button>`).join("")}
         </div>
       </article>
     </div>`;

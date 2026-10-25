@@ -20,29 +20,35 @@ window.PORTFOLIO = {
     ctaText: "Feel free to explore my portfolio and reach out\n— I'd love to connect!",
   },
 
-  // ── Hero cards ── (placeholders — change the insides later)
+  // ── Hero cards ──
   // "My Experience" card is filled automatically from `experience` below.
-  playlist: {
-    title: "Playlist Title", // TODO
-    url: "", // TODO: Spotify link
-    covers: ["", "", ""], // TODO: 3 square album images, center one is index 1
-  },
-  reading: {
-    title: "Book Title", // TODO
-    author: "Author Name", // TODO
-    cover: "", // TODO: "img/book.jpg"
-  },
-  map: {
-    city: "Depok",
-    country: "Indonesia",
-    coords: "6.36° S, 106.83° E",
-  },
+  // "How I work": the scientific method as I apply it. label = tab text.
   howIWork: [
-    { title: "Start from a question", text: "Every project begins with a real human question: how people learn, connect or make sense of things." },
-    { title: "Read the theory", text: "I look at what philosophy and psychology already say, so the build rests on more than intuition." },
-    { title: "Build the smallest version", text: "A focused prototype in Python or on the web, small enough that the logic stays visible." },
-    { title: "Test with real data", text: "I check the idea against real people and real data, including my own, before trusting it." },
-    { title: "Reflect and write", text: "I write up what worked, what didn't and what it says about the original question." },
+    {
+      label: "Observe",
+      title: "Observation and research question",
+      text: "I start from an observed pattern in how people learn, connect or make sense of things, and narrow it into a precise, answerable research question with a defined scope.",
+    },
+    {
+      label: "Review",
+      title: "Literature review",
+      text: "I survey what epistemology, psychology and prior studies already establish, so the work builds on existing evidence and identifies a real gap rather than relying on intuition.",
+    },
+    {
+      label: "Hypothesize",
+      title: "Falsifiable hypothesis",
+      text: "I state a testable hypothesis, operationalize each variable and decide in advance what result would count as evidence against it.",
+    },
+    {
+      label: "Experiment",
+      title: "Method and experiment",
+      text: "I build the minimal instrument needed to test it: a Python program, prototype or data pipeline. Calibry, for example, tests calorie formulas derived from the Fitbit Kaggle dataset against my own Garmin data.",
+    },
+    {
+      label: "Conclude",
+      title: "Analysis and conclusion",
+      text: "I compare the results with the hypothesis, report limitations and possible confounds, and document the process so others can replicate or refute it.",
+    },
   ],
 
   // ── My Expertise ──
