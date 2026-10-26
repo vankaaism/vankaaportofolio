@@ -272,11 +272,17 @@ img { max-width: 100%; display: block; }
 
 .works__panel { display: flex; flex-direction: column; height: 700px; padding: 20px 20px 0; background: var(--surface); }
 .works__tab {
-  align-self: flex-start; margin: 0 0 -2px -2px; padding: 10px 56px 8px 20px;
-  font-size: 22px; font-weight: 500; letter-spacing: -.01em;
-  border: 2px solid var(--second); border-bottom-color: var(--surface);
-  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 100%, 0 100%);
-  border-radius: 4px 0 0 0; position: relative; z-index: 1; background: var(--surface);
+  /* folder tab: navy outer shape + white inner shape inset 2px = a 2px outline that follows the slant */
+  --slant: 34px;
+  position: relative; isolation: isolate; align-self: flex-start;
+  margin: 0 0 -2px; padding: 10px calc(var(--slant) + 22px) 10px 20px;
+  font-size: 22px; font-weight: 500; letter-spacing: -.01em; line-height: 1.2;
+  background: var(--second);
+  clip-path: polygon(0 0, calc(100% - var(--slant)) 0, 100% 100%, 0 100%);
+}
+.works__tab::before {
+  content: ""; position: absolute; z-index: -1; inset: 2px 2.8px 0 2px; background: var(--surface);
+  clip-path: polygon(0 0, calc(100% - var(--slant) + 0.8px) 0, 100% 100%, 0 100%);
 }
 .works__chips {
   display: flex; flex-wrap: wrap; gap: 10px; padding: 16px 16px 12px;
