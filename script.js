@@ -17,10 +17,6 @@
     `<svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n] || ICONS.code}</svg>`;
   const media = (src, alt) =>
     src ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" />` : `<div class="placeholder">add image</div>`;
-  const cover = (p) =>
-    p.image
-      ? `<img src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" />`
-      : `<div class="cover cover--${esc(p.category.toLowerCase())}" aria-hidden="true"><span class="cover__mark">${esc((p.title.match(/[A-Za-z0-9]/) || ["•"])[0].toUpperCase())}</span></div>`;
   const initials = (s = "") => s.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
   const host = (u = "") => u.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
@@ -116,46 +112,118 @@
       ${f.url ? `<a class="btn" href="${esc(f.url)}" target="_blank" rel="noopener">View Project</a>` : ""}
     </div>`;
 
-  const cats = D.categories || [...new Set(D.projects.map((p) => p.category))];
-  const count = (c) => String(c === "All" ? D.projects.length : D.projects.filter((p) => p.category === c).length).padStart(2, "0");
-  $("[data-filters]").innerHTML =
-    `<span class="filters__label">Filter by</span>` +
-    ["All", ...cats]
-      .map(
-        (c, i, a) =>
-          `<button class="filter" role="tab" data-cat="${esc(c)}" aria-selected="${c === "All"}">${esc(c)}<sup>${count(c)}</sup></button>${
-            i < a.length - 1 ? '<span class="filter-sep">/</span>' : ""
-          }`
-      )
-      .join("");
+  // ── Selected Works (two-pane explorer: list on the left, detail on the right) ──
+  const P = D.projects || [];
+  const cats = D.categories || [...new Set(P.map((p) => p.category))];
+  const catClass = (c) => `cat-${cats.indexOf(c) % 4}`;
+  const useYears = P.length && P.every((p) => p.year);
+  const groupOf = (p) => (useYears ? String(p.year) : p.status === "in progress" ? "Ongoing" : p.status === "published" ? "Published" : "Completed");
+  const groupOrder = useYears
+    ? [...new Set(P.map(groupOf))].sort((a, b) => b.localeCompare(a))
+    : ["Ongoing", "Completed", "Published"].filter((g) => P.some((p) => groupOf(p) === g));
+  const pad = (n) => String(n).padStart(2, "0");
+  const linkLabel = (u) => (/github\.com/.test(u) ? "View on GitHub" : /medium\.com/.test(u) ? "Read on Medium" : "View project");
 
-  $("[data-projects]").innerHTML = D.projects
-    .map(
-      (p) => {
-        const tag = p.url ? "a" : "div";
-        const attrs = p.url ? ` href="${esc(p.url)}" target="_blank" rel="noopener"` : "";
-        return `
-      <${tag} class="project reveal${p.url ? "" : " project--nolink"}" data-cat="${esc(p.category)}"${attrs}>
-        <div class="project__media">${cover(p)}<span class="pill project__pill">${esc(p.category)}</span></div>
-        <div class="project__info">
-          <h3 class="project__title">${esc(p.title)}</h3>
-          ${p.status ? `<p class="project__status status--${esc(p.status.replace(/\s+/g, "-"))}"><i></i>${esc(p.status)}</p>` : ""}
-          ${p.description ? `<p class="project__desc">${esc(p.description)}</p>` : ""}
-          ${p.url ? `<span class="project__more">View ${/github\.com/.test(p.url) ? "on GitHub" : "project"} →</span>` : ""}
-        </div>
-      </${tag}>`;
-      }
-    )
-    .join("");
+  const thumb = (p) =>
+    p.image ? `<img src="${esc(p.image)}" alt="" loading="lazy" />` : `<span class="${catClass(p.category)}">${esc((p.title.match(/[A-Za-z0-9]/) || ["•"])[0].toUpperCase())}</span>`;
 
-  $("[data-filters]").addEventListener("click", (e) => {
-    const btn = e.target.closest(".filter");
-    if (!btn) return;
-    const cat = btn.dataset.cat;
-    document.querySelectorAll(".filter").forEach((b) => b.setAttribute("aria-selected", b === btn));
-    document.querySelectorAll(".project").forEach((p) => {
-      p.classList.toggle("is-hidden", cat !== "All" && p.dataset.cat !== cat);
-    });
+  $("[data-works]").innerHTML = `
+    <div class="works__panel">
+      <h3 class="works__tab">Selected Works</h3>
+      <div class="works__chips" role="group" aria-label="Filter by category">
+        ${cats.map((c) => `<button class="chip ${catClass(c)}" data-cat="${esc(c)}" aria-pressed="true"><i></i>${esc(c)}</button>`).join("")}
+      </div>
+      <div class="works__list" role="listbox" aria-label="Projects">
+        ${groupOrder
+          .map(
+            (g) => `
+          <div class="works__group" data-group="${esc(g)}">
+            <p class="works__year">${esc(g)}</p>
+            ${P.map((p, i) => [p, i])
+              .filter(([p]) => groupOf(p) === g)
+              .map(
+                ([p, i]) => `
+              <button class="wk ${catClass(p.category)}" role="option" data-i="${i}" data-cat="${esc(p.category)}" aria-selected="false">
+                <span class="wk__ctx">${esc(p.context || p.category)}</span>
+                <span class="wk__title">${esc(p.title)}</span>
+                <span class="wk__desc">${esc(p.description || "")}</span>
+                <span class="wk__thumb" aria-hidden="true">${thumb(p)}</span>
+              </button>`
+              )
+              .join("")}
+          </div>`
+          )
+          .join("")}
+      </div>
+    </div>
+    <div class="works__detail" data-detail aria-live="polite"></div>`;
+
+  const showWork = (i, { scroll = false } = {}) => {
+    const p = P[i];
+    if (!p) return;
+    document.querySelectorAll(".wk").forEach((w) => w.setAttribute("aria-selected", w.dataset.i === String(i)));
+    const code = `${(p.category || "").slice(0, 3).toUpperCase()}-${pad(i + 1)}${(p.status || "").replace(/\W/g, "").slice(0, 2).toUpperCase()}`;
+    $("[data-detail]").innerHTML = `
+      <div class="detail__screen ${catClass(p.category)}">
+        <div class="detail__media">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.title)}" />` : `<span class="detail__mark">${esc((p.title.match(/[A-Za-z0-9]/) || ["•"])[0].toUpperCase())}</span>`}</div>
+        <span class="detail__fig">FIG. ${pad(i + 1)} / ${pad(P.length)}</span>
+        <span class="detail__code">${esc(code)}</span>
+        <button class="detail__nav detail__nav--prev" data-step="-1" aria-label="Previous project">‹</button>
+        <button class="detail__nav detail__nav--next" data-step="1" aria-label="Next project">›</button>
+      </div>
+      <h3 class="detail__title">${esc(p.title)}</h3>
+      <p class="detail__meta">
+        ${p.context ? `<span><b>Type</b> ${esc(p.context)}</span>` : ""}
+        ${p.status ? `<span><b>Status</b> ${esc(p.status)}</span>` : ""}
+        ${p.year ? `<span><b>Year</b> ${esc(p.year)}</span>` : ""}
+      </p>
+      <span class="detail__tag">${esc(p.category)}</span>
+      <hr class="detail__rule" />
+      ${p.description ? `<p class="detail__desc">${esc(p.description)}</p>` : ""}
+      ${p.url ? `<a class="detail__link" href="${esc(p.url)}" target="_blank" rel="noopener">${linkLabel(p.url)} ↗</a>` : `<p class="detail__soon">Link coming soon.</p>`}`;
+    $("[data-detail]").classList.remove("swap");
+    void $("[data-detail]").offsetWidth;
+    $("[data-detail]").classList.add("swap");
+    if (scroll && matchMedia("(max-width: 900px)").matches) $("[data-detail]").scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const visible = () => [...document.querySelectorAll(".wk:not([hidden])")].map((w) => +w.dataset.i);
+  let current = visible()[0] ?? 0;
+  showWork(current);
+
+  $(".works__list").addEventListener("click", (e) => {
+    const w = e.target.closest(".wk");
+    if (w) showWork((current = +w.dataset.i), { scroll: true });
+  });
+  $(".works__list").addEventListener("keydown", (e) => {
+    if (!["ArrowDown", "ArrowUp"].includes(e.key)) return;
+    e.preventDefault();
+    const v = visible(), k = v.indexOf(current);
+    current = v[(k + (e.key === "ArrowDown" ? 1 : -1) + v.length) % v.length];
+    showWork(current);
+    document.querySelector(`.wk[data-i="${current}"]`).focus();
+  });
+  $("[data-detail]").addEventListener("click", (e) => {
+    const b = e.target.closest(".detail__nav");
+    if (!b) return;
+    const v = visible(), k = v.indexOf(current);
+    current = v[(k + +b.dataset.step + v.length) % v.length];
+    showWork(current);
+    document.querySelector(`.wk[data-i="${current}"]`).scrollIntoView({ block: "nearest", behavior: "smooth" });
+  });
+  $(".works__chips").addEventListener("click", (e) => {
+    const c = e.target.closest(".chip");
+    if (!c) return;
+    c.setAttribute("aria-pressed", c.getAttribute("aria-pressed") !== "true");
+    let on = [...document.querySelectorAll('.chip[aria-pressed="true"]')].map((x) => x.dataset.cat);
+    if (!on.length) {
+      document.querySelectorAll(".chip").forEach((x) => x.setAttribute("aria-pressed", "true"));
+      on = cats;
+    }
+    document.querySelectorAll(".wk").forEach((w) => (w.hidden = !on.includes(w.dataset.cat)));
+    document.querySelectorAll(".works__group").forEach((g) => (g.hidden = !g.querySelector(".wk:not([hidden])")));
+    const v = visible();
+    if (v.length && !v.includes(current)) showWork((current = v[0]));
   });
 
   // ── Experience (accordion; native <details name> = only one open at a time) ──

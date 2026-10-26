@@ -91,11 +91,13 @@ window.PORTFOLIO = {
   // Filter order. "All" is added automatically.
   categories: ["Software", "Research", "Writing"],
 
+  // Shown in the "Selected Works" explorer, grouped by status (or by `year` if you add one to every project).
   // status: "completed" | "in progress" | "published"
   // image: leave "" to get an auto-generated text cover
   projects: [
     {
       title: "Temu",
+      context: "Python CLI", // small label above the title
       category: "Software",
       description:
         "Python CLI that recommends campus student clubs from interest ratings, with vote percentages and consent-based member matching. Built around the idea of social capital.",
@@ -105,6 +107,7 @@ window.PORTFOLIO = {
     },
     {
       title: "Calibry",
+      context: "Data experiment", // small label above the title
       category: "Software",
       description: "CLI that derives calorie formulas from the Fitbit Kaggle dataset and tests them against my own Garmin data.",
       url: "https://github.com/vankaaism/colibry",
@@ -113,6 +116,7 @@ window.PORTFOLIO = {
     },
     {
       title: "LesTari", // lestari (preserved) + tari (dance)
+      context: "Computer vision", // small label above the title
       category: "Software",
       description:
         "A demonstration of how technology can support cultural preservation: computer-vision motion capture that turns traditional dance movement into animation.",
@@ -122,6 +126,7 @@ window.PORTFOLIO = {
     },
     {
       title: "Matrices in EEG Emotion Recognition",
+      context: "Paper analysis", // small label above the title
       category: "Research",
       description:
         "Analysis of how SPD matrices are used in Wang et al. (2021), a Pattern Recognition paper on EEG emotion recognition.",
@@ -131,6 +136,7 @@ window.PORTFOLIO = {
     },
     {
       title: "AI for Regional Languages",
+      context: "Proposal essay", // small label above the title
       category: "Research",
       description:
         "Proposal essay on using AI for low-resource Indonesian regional languages to widen access to opportunity in 3T areas.",
@@ -140,6 +146,7 @@ window.PORTFOLIO = {
     },
     {
       title: "I've killed some versions of myself to be this calm.",
+      context: "Personal essay", // small label above the title
       category: "Writing",
       description: "A personal essay on freedom, agency and following an imposed direction.",
       url: "", // TODO: Medium link
