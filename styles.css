@@ -109,7 +109,7 @@ img { max-width: 100%; display: block; }
   -webkit-mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent);
           mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent);
 }
-.tl__list { margin: 0; padding: 0; list-style: none; animation: tlScroll 14s linear infinite; }
+.tl__list { margin: 0; padding: 0; list-style: none; animation: tlScroll 26s linear infinite; }
 .card--exp:hover .tl__list { animation-play-state: paused; }
 @keyframes tlScroll { to { transform: translateY(-50%); } }
 .tl__list li { position: relative; padding: 0 0 22px 24px; border-left: 2px solid var(--second); }

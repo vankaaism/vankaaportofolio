@@ -27,8 +27,8 @@
   const lines = (t = "") => esc(t).replace(/\n/g, " <br />");
   const cardPill = (t) => `<span class="pill">${esc(t)}</span>`;
 
-  const expItems = (D.experience || [])
-    .map((x) => `<li><strong>${esc(x.role)}${x.company ? ` at ${esc(x.company)}` : ""}</strong><span>${esc([x.period, x.type].filter(Boolean).join(" · "))}</span></li>`)
+  const expItems = (D.volunteering || [])
+    .map((x) => `<li><strong>${esc(x.role)}${x.org ? ` at ${esc(x.org)}` : ""}</strong><span>${esc([x.period, x.cause].filter(Boolean).join(" · "))}</span></li>`)
     .join("");
 
   const steps = D.howIWork || [];
@@ -49,7 +49,7 @@
 
     <div class="bento">
       <article class="card card--exp">
-        ${cardPill("My Experience")}
+        ${cardPill("Volunteering")}
         <div class="tl"><ul class="tl__list">${expItems}${expItems.replace(/<li>/g, '<li aria-hidden="true">')}</ul></div>
       </article>
 

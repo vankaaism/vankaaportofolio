@@ -21,7 +21,15 @@ window.PORTFOLIO = {
   },
 
   // ── Hero cards ──
-  // "My Experience" card is filled automatically from `experience` below.
+  // Volunteering highlights (scrolling timeline card in the hero). Newest first.
+  volunteering: [
+    { role: "Project Management Intern", org: "Youth Ranger Indonesia", period: "Mar 2026 - Jul 2026", cause: "Education" },
+    { role: "Secretary, Psychology Class of 2025", org: "International Open University", period: "Sep 2025 - Present", cause: "Education" },
+    { role: "RnD Apprentice", org: "DPM FIB UI", period: "Sep 2025 - Nov 2025", cause: "Civil Rights and Social Action" },
+    { role: "Audience Sustainability Manager", org: "TEDxTelkom University", period: "Dec 2024 - Jul 2025", cause: "Social Services" },
+    { role: "Volunteer Teacher, Rural Education Program", org: "Universitas Persatuan Islam", period: "Sep 2023 - Jan 2024", cause: "Education" },
+    { role: "Vice President of Education Affairs", org: "OSIS", period: "Jun 2022 - May 2023", cause: "Education" },
+  ],
   // "How I work": the scientific method as I apply it. label = tab text.
   howIWork: [
     {
@@ -175,19 +183,6 @@ window.PORTFOLIO = {
       tags: ["Program Management", "Program Development"],
       logo: "img/pemimpin.jpg",
       initials: "P",
-    },
-    {
-      role: "Audience Sustainability Manager",
-      company: "TEDxTelkom University",
-      type: "Volunteer · Social Services",
-      period: "Dec 2024 - Jul 2025",
-      location: "", // TODO: e.g. "Bandung · On-site"
-      website: "", // TODO
-      description:
-        "TEDx Telkom University Volunteer, driving innovation and community impact. Facilitated interdisciplinary discussions, empowering students and fostering creative, sustainable solutions.",
-      tags: ["Community Engagement", "Facilitation", "Event Management"],
-      logo: "img/tedx.png",
-      initials: "TX",
     },
     {
       role: "Practicum Assistant Trainee",
