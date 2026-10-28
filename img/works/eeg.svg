@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="960" height="600">
+  <defs>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/>
+    </filter>
+  </defs>
+  <rect width="480" height="300" fill="#F7F5F0"/>
+  <g transform="translate(240 264) scale(1.12) translate(-240 -250)">
+  <ellipse cx="240.0" cy="258" rx="170" ry="22" fill="#2348B0" stroke="none"/>
+  <g filter="url(#ink)" fill="none" stroke="#151515" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="175" cy="133.6" r="17" fill="#fff"/><circle cx="172" cy="131.6" r="1.9" fill="#151515" stroke="none"/><circle cx="184" cy="131.6" r="1.9" fill="#151515" stroke="none"/><path d="M173 140.6 q5 4 10 0"/><path d="M175 150.6 Q177 181.6 175 212.6"/><path d="M175.0 160.6 Q156.0 170.8 149.3 191.2"/><path d="M175.0 160.6 Q196.5 159.9 212.6 174.3"/><path d="M175.0 212.6 Q164.4 236.7 161.5 262.8"/><path d="M175.0 212.6 Q185.6 236.7 188.5 262.8"/><path transform="rotate(8 175 151.6)" d="M171 151.6 l8 0 l-2 6 l9 22 l-10 8 l-9 -9 l6 -21 z" fill="#151515"/><path d="M157 120 q18 -26 36 0" stroke-width="3"/><circle cx="160" cy="116" r="3.6" fill="#2348B0" stroke="none"/><circle cx="175" cy="106" r="3.6" fill="#2348B0" stroke="none"/><circle cx="190" cy="116" r="3.6" fill="#2348B0" stroke="none"/><path d="M175 104 C190 60, 240 60, 262 90 M190 114 C210 80, 240 100, 262 118" stroke-width="2.4"/><rect x="262" y="66" width="150" height="120" rx="6" fill="#fff"/><path d="M284 86 h-8 v52 h8 M352 86 h8 v52 h-8" stroke-width="3"/><text x="290" y="108" font-family="Comic Sans MS, Marker Felt, cursive" font-size="17" fill="#151515" stroke="none">σ₁  ρ</text><text x="290" y="132" font-family="Comic Sans MS, Marker Felt, cursive" font-size="17" fill="#151515" stroke="none">ρ   σ₂</text><path d="M372 112 q6 -16 12 0 t12 0" stroke-width="2.4"/><path d="M276 166 q8 -14 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0" stroke-width="2.4"/><path d="M330 186 L322 252 M346 186 L354 252" stroke-width="3"/>
+  </g>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="960" height="600">
+  <defs>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/>
+    </filter>
+  </defs>
+  <rect width="480" height="300" fill="#F7F5F0"/>
+  <g transform="translate(240 264) scale(1.12) translate(-240 -250)">
+  <ellipse cx="180" cy="258" rx="120" ry="22" fill="#2348B0" stroke="none"/>
+  <g filter="url(#ink)" fill="none" stroke="#151515" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <g opacity="0.45" stroke-dasharray="5 7" stroke-width="2.6"><circle cx="330" cy="121.6" r="17" fill="#fff"/><circle cx="326" cy="119.6" r="1.9" fill="#151515" stroke="none"/><circle cx="338" cy="119.6" r="1.9" fill="#151515" stroke="none"/><path d="M327 128.6 q5 4 10 0"/><path d="M315 113.6 q17 -23 34 -2"/><path d="M330 138.6 Q332 169.6 330 200.6"/><path d="M330.0 148.6 Q313.1 161.9 310.0 183.2"/><path d="M330.0 148.6 Q346.9 161.9 350.0 183.2"/><path d="M330.0 200.6 Q319.4 224.7 316.5 250.8"/><path d="M330.0 200.6 Q340.6 224.7 343.5 250.8"/></g><g opacity="0.28" stroke-dasharray="5 7" stroke-width="2.6"><circle cx="392" cy="121.6" r="17" fill="#fff"/><circle cx="388" cy="119.6" r="1.9" fill="#151515" stroke="none"/><circle cx="400" cy="119.6" r="1.9" fill="#151515" stroke="none"/><path d="M389 128.6 q5 4 10 0"/><path d="M377 113.6 q17 -23 34 -2"/><path d="M392 138.6 Q394 169.6 392 200.6"/><path d="M392.0 148.6 Q375.1 161.9 372.0 183.2"/><path d="M392.0 148.6 Q408.9 161.9 412.0 183.2"/><path d="M392.0 200.6 Q381.4 224.7 378.5 250.8"/><path d="M392.0 200.6 Q402.6 224.7 405.5 250.8"/></g><g opacity="0.6" stroke-dasharray="5 7" stroke-width="2.6"><circle cx="268" cy="121.6" r="17" fill="#fff"/><circle cx="264" cy="119.6" r="1.9" fill="#151515" stroke="none"/><circle cx="276" cy="119.6" r="1.9" fill="#151515" stroke="none"/><path d="M265 128.6 q5 4 10 0"/><path d="M253 113.6 q17 -23 34 -2"/><path d="M268 138.6 Q270 169.6 268 200.6"/><path d="M268.0 148.6 Q251.1 161.9 248.0 183.2"/><path d="M268.0 148.6 Q284.9 161.9 288.0 183.2"/><path d="M268.0 200.6 Q257.4 224.7 254.5 250.8"/><path d="M268.0 200.6 Q278.6 224.7 281.5 250.8"/></g><circle cx="170" cy="150" r="17" fill="#fff"/><path d="M164 152 q3 -2 6 0 M176 152 q3 -2 6 0"/><path d="M166 160 q4 3 8 0"/><path d="M170 167 Q172 195 170 222"/><path d="M170 222 q-26 6 -40 24 q24 6 44 -2 M170 222 q26 6 40 24 q-24 6 -44 -2"/><path d="M170 180 q-22 14 -30 34 M170 180 q22 14 30 34"/><path transform="rotate(0 170 168)" d="M166 168 l8 0 l-2 6 l9 22 l-10 8 l-9 -9 l6 -21 z" fill="#151515"/><path d="M60 230 l40 -40 l8 8 l-40 40 z" fill="#fff"/><path d="M60 230 l-6 14 l14 -6" />
+  </g>
+  </g>
+</svg>

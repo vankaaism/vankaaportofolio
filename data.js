@@ -11,7 +11,7 @@ window.PORTFOLIO = {
 
   // ── Hero ── "Hi, I'm [avatar] Vankaa!" / "I'm a <role> at" / "<org>." [status]
   hero: {
-    avatar: "", // TODO: "img/me.jpg" (square photo) — shows "V" until then
+    avatar: "img/me.jpg",
     role: "Philosophy Student",
     org: "Universitas Indonesia.",
     status: "Open to collaborate",
@@ -110,7 +110,7 @@ window.PORTFOLIO = {
       description:
         "Python CLI that recommends campus student clubs from interest ratings, with vote percentages and consent-based member matching. Built around the idea of social capital.",
       url: "https://github.com/vankaaism/ukmrecommender",
-      image: "", // TODO
+      image: "img/works/temu.svg",
       status: "completed",
     },
     {
@@ -119,7 +119,7 @@ window.PORTFOLIO = {
       category: "Software",
       description: "CLI that derives calorie formulas from the Fitbit Kaggle dataset and tests them against my own Garmin data.",
       url: "https://github.com/vankaaism/colibry",
-      image: "", // TODO
+      image: "img/works/calibry.svg",
       status: "in progress",
     },
     {
@@ -129,7 +129,7 @@ window.PORTFOLIO = {
       description:
         "A demonstration of how technology can support cultural preservation: computer-vision motion capture that turns traditional dance movement into animation.",
       url: "https://github.com/vankaaism/motion_capture_humdig", // repo name: motion_capture_humdig
-      image: "", // TODO
+      image: "img/works/lestari.svg",
       status: "in progress",
     },
     {
@@ -139,7 +139,7 @@ window.PORTFOLIO = {
       description:
         "Analysis of how SPD matrices are used in Wang et al. (2021), a Pattern Recognition paper on EEG emotion recognition.",
       url: "", // TODO
-      image: "", // TODO
+      image: "img/works/eeg.svg",
       status: "completed",
     },
     {
@@ -149,7 +149,7 @@ window.PORTFOLIO = {
       description:
         "Proposal essay on using AI for low-resource Indonesian regional languages to widen access to opportunity in 3T areas.",
       url: "", // TODO
-      image: "", // TODO
+      image: "img/works/regional-languages.svg",
       status: "in progress",
     },
     {
@@ -158,7 +158,7 @@ window.PORTFOLIO = {
       category: "Writing",
       description: "A personal essay on freedom, agency and following an imposed direction.",
       url: "", // TODO: Medium link
-      image: "", // TODO
+      image: "img/works/essay.svg",
       status: "published",
     },
   ],

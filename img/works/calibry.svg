@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="960" height="600">
+  <defs>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2"/>
+    </filter>
+  </defs>
+  <rect width="480" height="300" fill="#F7F5F0"/>
+  <g transform="translate(240 264) scale(1.12) translate(-240 -250)">
+  <ellipse cx="240.0" cy="258" rx="170" ry="22" fill="#2348B0" stroke="none"/>
+  <g filter="url(#ink)" fill="none" stroke="#151515" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="170" cy="133.6" r="17" fill="#fff"/><circle cx="168" cy="131.6" r="1.9" fill="#151515" stroke="none"/><circle cx="180" cy="131.6" r="1.9" fill="#151515" stroke="none"/><path d="M169 140.6 q5 4 10 0"/><path d="M162 118.6 l-3.2 -11"/><path d="M167 118.6 l-1.2 -11"/><path d="M172 118.6 l0.8 -11"/><path d="M177 118.6 l2.8 -11"/><path d="M170 150.6 Q172 181.6 170 212.6"/><path d="M170.0 160.6 Q146.4 166.9 132.4 146.9"/><path d="M170.0 160.6 Q192.9 165.0 207.6 146.9"/><path d="M170.0 212.6 Q150.2 229.9 136.6 252.4"/><path d="M170.0 212.6 Q189.8 229.9 203.4 252.4"/><path transform="rotate(-35 170 151.6)" d="M166 151.6 l8 0 l-2 6 l9 22 l-10 8 l-9 -9 l6 -21 z" fill="#151515"/><rect x="202" y="141" width="12" height="12" rx="3" fill="#fff"/><rect x="250" y="70" width="150" height="110" rx="6" fill="#fff"/><path d="M262 165 H388 M262 165 V82" stroke-width="2.6"/><path d="M266 150 C290 140, 300 110, 322 115 S360 95, 384 92" /><path d="M266 156 C292 150, 304 128, 326 128 S362 112, 384 108" stroke-dasharray="7 7" stroke-width="2.6"/><path d="M318 180 L310 250 M338 180 L346 250" stroke-width="3"/><text x="276" y="102" font-family="Comic Sans MS, Marker Felt, cursive" font-size="15" fill="#151515" stroke="none">kcal</text><path d="M108 170 h-26 M114 190 h-34 M108 210 h-22" stroke-width="2.6"/>
+  </g>
+  </g>
+</svg>
