@@ -8,8 +8,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="src/components/HandsLoader/HandsLoader.css" />
+  <link rel="preload" as="image" href="src/assets/loader/left-hand.webp" type="image/webp" />
+  <link rel="preload" as="image" href="src/assets/loader/right-hand.webp" type="image/webp" />
+  <noscript><style>#hands-loader { display: none; }</style></noscript>
 </head>
 <body>
+  <!-- Loading screen: covers the page from first paint; HandsLoader.js animates and removes it. -->
+  <div id="hands-loader"></div>
+
   <nav class="nav">
     <a href="#home"><sup>01</sup>// home</a>
     <a href="#expertise"><sup>02</sup>// expertise</a>
@@ -55,5 +62,12 @@
 
   <script src="data.js"></script>
   <script src="script.js"></script>
+  <script type="module">
+    import { HandsLoader } from "./src/components/HandsLoader/HandsLoader.js";
+    const loader = HandsLoader(document.getElementById("hands-loader"), {
+      onComplete: () => loader.destroy(), // unmount once the site is revealed
+      // ready: defaults to window "load" (5s safety timeout); duration: 2600
+    });
+  </script>
 </body>
 </html>

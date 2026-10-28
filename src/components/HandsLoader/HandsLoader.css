@@ -1,0 +1,57 @@
+/* HandsLoader — the overlay itself is in index.html so it covers the page from the first paint. */
+#hands-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  background: #2F3B2F; /* COLORS.background */
+  /* No-JS / script-error failsafe: fade away after 8s. JS cancels this on mount. */
+  animation: hl-failsafe 0.4s ease 8s forwards;
+}
+@keyframes hl-failsafe {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.hl__stage {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+}
+
+.hl__hand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}
+/* Fade the cut end of each forearm into the background so any hand size works. */
+.hl__hand--left {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 12%);
+}
+.hl__hand--right {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, #000 12%);
+          mask-image: linear-gradient(to left, transparent 0%, #000 12%);
+}
+
+.hl__thread {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.hl__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
