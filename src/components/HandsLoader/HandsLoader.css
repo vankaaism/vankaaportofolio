@@ -4,7 +4,7 @@
   inset: 0;
   z-index: 1000;
   overflow: hidden;
-  background: #2F3B2F; /* COLORS.background */
+  background: #2BB3A3; /* COLORS.background — site accent teal */
   /* No-JS / script-error failsafe: fade away after 8s. JS cancels this on mount. */
   animation: hl-failsafe 0.4s ease 8s forwards;
 }

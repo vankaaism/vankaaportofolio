@@ -1,7 +1,7 @@
 // HandsLoader — every tunable value lives here.
 
 export const COLORS = {
-  background: "#2F3B2F",
+  background: "#2BB3A3", // site accent teal (--accent in styles.css)
   hand: "#F5F3EE", // baked into the images
   thread: "#E8E4D6",
 };
