@@ -9,11 +9,14 @@ window.PORTFOLIO = {
   fullName: "Muchamad Zovanka Al-Maizani",
   tagline: "Philosophy student building at the intersection of psychology, philosophy and AI.",
 
-  // ── Hero ── "Hi, I'm [avatar] Vankaa!" / "I'm a <role> at" / "<org>." [status]
+  // ── Hero ── "Hi, I'm [avatar] Vankaa!" / "<lead> <role> <link>" / "<org>" [status]
   hero: {
     avatar: "img/me.jpg",
-    role: "Philosophy Student",
-    org: "Universitas Indonesia.",
+    // Renders as: "<lead> <role> <link>" / "<org>"  →  "An aspiring polymath across" / "philosophy, psychology and AI."
+    lead: "An aspiring",
+    role: "polymath",
+    link: "across",
+    org: "philosophy, psychology and AI.",
     status: "Open to collaborate",
     ctaLabel: "Get in touch",
     ctaHref: "#contact",

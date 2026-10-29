@@ -37,7 +37,7 @@
     <div class="hi">
       <h1 class="hi__title">
         <span class="hi__line">Hi, I'm <span class="hi__avatar">${H.avatar ? `<img src="${esc(H.avatar)}" alt="" />` : `<span>${esc(initial)}</span>`}</span> ${esc(D.name)}!</span>
-        <span class="hi__line"><span class="hi__soft">I'm a</span> ${esc(H.role)} <span class="hi__soft">at</span></span>
+        <span class="hi__line"><span class="hi__soft">${esc(H.lead ?? "I'm a")}</span> ${esc(H.role)} <span class="hi__soft">${esc(H.link ?? "at")}</span></span>
         <span class="hi__line hi__line--last"><span class="hi__accent">${esc(H.org)}</span>${H.status ? `<span class="hi__status"><i></i>${esc(H.status)}</span>` : ""}</span>
       </h1>
       <p class="sr-only">${esc(D.fullName || "")}. ${esc(D.tagline || "")}</p>
