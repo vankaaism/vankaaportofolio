@@ -59,7 +59,7 @@ img { max-width: 100%; display: block; }
 .hero { max-width: var(--max); margin: 0 auto; padding: 120px var(--gutter) 40px; }
 .hi__title {
   margin: 0; display: grid; gap: .06em;
-  font-size: clamp(34px, 6vw, 68px); font-weight: 600; line-height: 1.12; letter-spacing: -.035em;
+  font-size: clamp(40px, 6vw, 68px); font-weight: 600; line-height: 1.1; letter-spacing: -.035em;
 }
 .hi__line { display: flex; flex-wrap: wrap; align-items: center; column-gap: .25em; row-gap: 4px; }
 .hi__soft { color: #A7B3C2; }
@@ -141,7 +141,13 @@ img { max-width: 100%; display: block; }
 @media (max-width: 600px) {
   .bento { grid-template-columns: 1fr; }
   .card--how { grid-column: auto; }
-  .hi__status { margin-left: 0; font-size: 13px; padding: 8px 14px; }
+  .hi__title { font-size: clamp(36px, 10vw, 52px); }
+  .hi__line { display: block; }               /* let words wrap naturally instead of whole colored groups */
+  .hi__avatar { vertical-align: -.18em; margin: 0 .04em; }
+  .hi__status { margin-top: 14px; }
+  .hi__status { font-size: 14px; padding: 9px 16px; }
+  .hi__cta { margin: 28px 0 40px; }
+  .hi__cta p { font-size: 17px; }
   .hi__cta p br { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .tl__list { animation: none; } }
