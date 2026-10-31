@@ -208,9 +208,9 @@ window.PORTFOLIO = {
     status: "Open to collaborations, research projects and hackathon teams",
     heading: "Working on something at the edge of people and technology?",
     text: "Send me an email or reach out on any of these.",
-    email: "", // TODO
+    email: "vankaaisme@gmail.com",
     links: [
-      { label: "LinkedIn", url: "" }, // TODO
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/zovanka-maizani/" },
       { label: "Instagram", url: "" }, // TODO
       { label: "Github", url: "https://github.com/vankaaism" },
       { label: "Medium", url: "" }, // TODO
