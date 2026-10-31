@@ -64,6 +64,20 @@
       </article>
     </div>`;
 
+  // On phones, shrink the teal line ("philosophy, psychology and AI.") so it always fits on one line.
+  const fitAccent = () => {
+    const el = $(".hi__accent");
+    if (!el) return;
+    el.style.fontSize = "";
+    if (innerWidth >= 600) return;
+    const avail = el.closest(".hi__title").clientWidth; // the headline box (its grid track can stretch past it)
+    const full = el.scrollWidth;
+    if (full > avail) el.style.fontSize = `${(parseFloat(getComputedStyle(el).fontSize) * avail) / full * 0.98}px`;
+  };
+  fitAccent();
+  document.fonts?.ready.then(fitAccent);
+  addEventListener("resize", fitAccent, { passive: true });
+
   $(".how__tabs")?.addEventListener("click", (e) => {
     const b = e.target.closest("button");
     if (!b) return;

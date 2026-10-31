@@ -58,7 +58,7 @@ img { max-width: 100%; display: block; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .hero { max-width: var(--max); margin: 0 auto; padding: 120px var(--gutter) 40px; }
 .hi__title {
-  margin: 0; display: grid; gap: .06em;
+  margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: .06em;
   font-size: clamp(40px, 6vw, 68px); font-weight: 600; line-height: 1.1; letter-spacing: -.035em;
 }
 .hi__line { display: flex; flex-wrap: wrap; align-items: center; column-gap: .25em; row-gap: 4px; }
@@ -143,6 +143,7 @@ img { max-width: 100%; display: block; }
   .card--how { grid-column: auto; }
   .hi__title { font-size: clamp(36px, 10vw, 52px); }
   .hi__line { display: block; }               /* let words wrap naturally instead of whole colored groups */
+  .hi__accent { display: block; width: max-content; white-space: nowrap; letter-spacing: -.015em; } /* sized to fit by fitAccent() in script.js */
   .hi__avatar { vertical-align: -.18em; margin: 0 .04em; }
   .hi__status { margin-top: 14px; }
   .hi__status { font-size: 14px; padding: 9px 16px; }
