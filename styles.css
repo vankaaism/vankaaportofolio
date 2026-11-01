@@ -477,9 +477,11 @@ img { max-width: 100%; display: block; }
   padding: 0 2px; transition: background-size .3s;
 }
 .contact__email:hover { background-size: 100% 100%; color: var(--second); }
-.contact__links { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font: 17px var(--mono); }
-.contact__links a { text-decoration: none; transition: color .3s; }
-.contact__links a:hover { color: var(--accent); }
+.contact__links { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 22px; font: 17px var(--mono); }
+.contact__links a { display: inline-flex; text-decoration: none; transition: color .3s, transform .3s; }
+.contact__links a:hover { color: var(--accent); transform: translateY(-2px); }
+.contact__links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+.contact__links a.is-icon svg { width: 30px; height: 30px; }
 
 .testimonials { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
 .tcard { margin: 0; padding: 28px 28px 32px; display: flex; flex-direction: column; }

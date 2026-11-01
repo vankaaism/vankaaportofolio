@@ -209,10 +209,11 @@ window.PORTFOLIO = {
     heading: "Working on something at the edge of people and technology?",
     text: "Send me an email or reach out on any of these.",
     email: "vankaaisme@gmail.com",
+    // Shown as logos. Known labels: Github, LinkedIn, Instagram, Medium (others fall back to text).
     links: [
+      { label: "Github", url: "https://github.com/vankaaism" },
       { label: "LinkedIn", url: "https://www.linkedin.com/in/zovanka-maizani/" },
       { label: "Instagram", url: "" }, // TODO
-      { label: "Github", url: "https://github.com/vankaaism" },
       { label: "Medium", url: "" }, // TODO
     ],
   },
