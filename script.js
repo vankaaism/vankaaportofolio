@@ -93,7 +93,10 @@
       <article class="exp-card reveal">
         <div class="exp-card__head">
           ${icon(e.icon)}
-          <h3 class="exp-card__title"><span>${esc(e.title)}</span>${e.sub ? `<span>${esc(e.sub)}</span>` : ""}</h3>
+          <div class="exp-card__heading">
+            <h3 class="exp-card__title">${esc(e.title)}</h3>
+            ${e.sub ? `<p class="exp-card__sub">${esc(e.sub)}</p>` : ""}
+          </div>
         </div>
         <div class="exp-card__tag">&lt;h3&gt;</div>
         <p class="exp-card__body">${esc(e.body)}</p>

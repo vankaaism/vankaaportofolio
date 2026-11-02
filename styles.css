@@ -168,6 +168,9 @@ img { max-width: 100%; display: block; }
   background: var(--bg);
 }
 .exp-card {
+  /* each card spans 4 rows of the parent grid and shares them (subgrid), so the
+     heading, <h3>, text and </h3> line up across all cards whatever their length */
+  display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; align-content: start;
   padding: 40px 32px 48px;
   border-right: 2px solid var(--line);
   transition: background .4s;
@@ -180,13 +183,16 @@ img { max-width: 100%; display: block; }
   margin: 0; font-weight: 600; font-size: 24px; line-height: 1.25;
   position: relative;
 }
-.exp-card__title span { display: block; }
+.exp-card__heading { min-width: 0; }
+.exp-card__sub { margin: 12px 0 0; font: 500 13px/1.45 var(--mono); letter-spacing: .02em; color: var(--accent-ink); }
 .exp-card__title::after {
   content: ""; position: absolute; left: 0; bottom: -6px; height: 3px; width: 0;
   background: var(--accent); transition: width .4s;
 }
 .exp-card:hover .exp-card__title::after { width: 48px; }
-.exp-card__tag { font: 14px var(--mono); color: var(--muted); }
+.exp-card__tag { font: 14px var(--mono); color: var(--muted); align-self: end; }
+.exp-card__tag:last-child { align-self: start; }
+.exp-card__body { align-self: start; }
 .exp-card__body {
   margin: 8px 0; padding-left: 16px; border-left: 2px solid var(--line);
   font: 15px/1.6 var(--mono); color: var(--text); letter-spacing: .02em;
