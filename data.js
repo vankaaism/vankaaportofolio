@@ -213,7 +213,7 @@ window.PORTFOLIO = {
     links: [
       { label: "Github", url: "https://github.com/vankaaism" },
       { label: "LinkedIn", url: "https://www.linkedin.com/in/zovanka-maizani/" },
-      { label: "Instagram", url: "" }, // TODO
+      { label: "Instagram", url: "https://www.instagram.com/vankaaaism._/" },
       { label: "Medium", url: "" }, // TODO
     ],
   },
