@@ -37,7 +37,8 @@
     <div class="hi">
       <h1 class="hi__title">
         <span class="hi__line">Hi, I'm <span class="hi__avatar">${H.avatar ? `<img src="${esc(H.avatar)}" alt="" />` : `<span>${esc(initial)}</span>`}</span> ${esc(D.name)}!</span>
-        <span class="hi__line"><span class="hi__soft">${esc(H.lead ?? "I'm a")}</span> ${esc(H.role)} <span class="hi__soft">${esc(H.link ?? "at")}</span></span>
+        <span class="hi__line hi__soft">${esc(H.lead ?? "I'm a")}</span>
+        <span class="hi__line">${esc(H.role)} <span class="hi__soft">${esc(H.link ?? "at")}</span></span>
         <span class="hi__line hi__line--last"><span class="hi__accent">${esc(H.org)}</span>${H.status ? `<span class="hi__status"><i></i>${esc(H.status)}</span>` : ""}</span>
       </h1>
       <p class="sr-only">${esc(D.fullName || "")}. ${esc(D.tagline || "")}</p>
@@ -64,15 +65,18 @@
       </article>
     </div>`;
 
-  // On phones, shrink the teal line ("philosophy, psychology and AI.") so it always fits on one line.
+  // Size the teal line ("philosophy, psychology and AI.") to exactly the width of the
+  // "Hi, I'm … Vankaa!" line, on every screen size, so the headline reads as one block.
   const fitAccent = () => {
     const el = $(".hi__accent");
-    if (!el) return;
+    const first = $(".hi__line");
+    if (!el || !first) return;
     el.style.fontSize = "";
-    if (innerWidth >= 600) return;
-    const avail = el.closest(".hi__title").clientWidth; // the headline box (its grid track can stretch past it)
+    const range = document.createRange();
+    range.selectNodeContents(first);
+    const target = Math.min(range.getBoundingClientRect().width, el.closest(".hi__title").clientWidth);
     const full = el.scrollWidth;
-    if (full > avail) el.style.fontSize = `${(parseFloat(getComputedStyle(el).fontSize) * avail) / full * 0.98}px`;
+    if (full && target) el.style.fontSize = `${(parseFloat(getComputedStyle(el).fontSize) * target) / full}px`;
   };
   fitAccent();
   document.fonts?.ready.then(fitAccent);
