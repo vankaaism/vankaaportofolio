@@ -45,9 +45,10 @@
       <div class="hi__cta">
         <p>${lines(H.ctaText)}</p>
       </div>
-    </div>
+    </div>`;
 
-    <div class="bento">
+  // ── Volunteering + How I work cards (sit under the Expertise grid) ──
+  $("[data-bento]").innerHTML = `
       <article class="card card--exp">
         ${cardPill("Volunteering")}
         <div class="tl"><ul class="tl__list">${expItems}${expItems.replace(/<li>/g, '<li aria-hidden="true">')}</ul></div>
@@ -62,7 +63,7 @@
           ${steps.map((st, i) => `<button role="tab" data-step="${i}" aria-selected="${i === 0}">${esc(steps[i].label || `Step ${String(i + 1).padStart(2, "0")}`)}</button>`).join("")}
         </div>
       </article>
-    </div>`;
+`;
 
   // Size the teal line ("philosophy, psychology and AI.") to exactly the width of the
   // "Hi, I'm … Vankaa!" line, on every screen size, so the headline reads as one block.
