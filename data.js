@@ -18,8 +18,6 @@ window.PORTFOLIO = {
     link: "across",
     org: "philosophy, psychology and AI.",
     status: "Open to collaborate",
-    ctaLabel: "Get in touch",
-    ctaHref: "#contact",
     ctaText: "Feel free to explore my portfolio and reach out\n— I'd love to connect!",
   },
 

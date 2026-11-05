@@ -43,7 +43,6 @@
       </h1>
       <p class="sr-only">${esc(D.fullName || "")}. ${esc(D.tagline || "")}</p>
       <div class="hi__cta">
-        <a class="hi__btn" href="${esc(H.ctaHref || "#contact")}">${esc(H.ctaLabel || "Get in touch")}</a>
         <p>${lines(H.ctaText)}</p>
       </div>
     </div>
