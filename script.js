@@ -24,7 +24,6 @@
   // ── Hero ──
   const H = D.hero || {};
   const initial = (D.name || "?")[0].toUpperCase();
-  const lines = (t = "") => esc(t).replace(/\n/g, " <br />");
   const cardPill = (t) => `<span class="pill">${esc(t)}</span>`;
 
   const expItems = (D.volunteering || [])
@@ -43,7 +42,7 @@
       </h1>
       <p class="sr-only">${esc(D.fullName || "")}. ${esc(D.tagline || "")}</p>
       <div class="hi__cta">
-        <p>${lines(H.ctaText)}</p>
+        <p class="hi__note">${esc((H.ctaText || "").replace(/\s*\n\s*/g, " "))}</p>
       </div>
     </div>`;
 
@@ -78,9 +77,19 @@
     const full = el.scrollWidth;
     if (full && target) el.style.fontSize = `${(parseFloat(getComputedStyle(el).fontSize) * target) / full}px`;
   };
-  fitAccent();
-  document.fonts?.ready.then(fitAccent);
-  addEventListener("resize", fitAccent, { passive: true });
+  // Keep the "Feel free to explore…" line on one line; shrink it only if it doesn't fit.
+  const fitNote = () => {
+    const el = $(".hi__note");
+    if (!el) return;
+    el.style.fontSize = "";
+    const avail = el.closest(".hi").clientWidth;
+    const full = el.scrollWidth;
+    if (full > avail) el.style.fontSize = `${(parseFloat(getComputedStyle(el).fontSize) * avail) / full * 0.98}px`;
+  };
+  const fitHero = () => { fitAccent(); fitNote(); };
+  fitHero();
+  document.fonts?.ready.then(fitHero);
+  addEventListener("resize", fitHero, { passive: true });
 
   $(".how__tabs")?.addEventListener("click", (e) => {
     const b = e.target.closest("button");
