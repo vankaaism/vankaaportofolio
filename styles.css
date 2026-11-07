@@ -20,14 +20,17 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: clip; }
+html { scroll-behavior: smooth; overflow-x: clip; scroll-snap-type: y mandatory; }
+/* Sectionized scrolling: each top-level section is a snap point. Sections taller than
+   the screen still scroll freely inside before snapping to the next one. */
+.hero, .section, .contact { scroll-snap-align: start; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip; /* clip, not hidden: hidden would make body a scroll container and break scroll-snap */
 }
 ::selection { background: var(--accent); color: var(--second); }
 a { color: inherit; }
