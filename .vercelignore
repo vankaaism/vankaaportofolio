@@ -1,0 +1,5 @@
+# Not part of the website — keep them out of the deployment
+tools/
+*.py
+.DS_Store
+main landing/
