@@ -66,20 +66,20 @@ window.PORTFOLIO = {
     {
       icon: "code",
       title: "Software Development",
-      sub: "Python",
-      body: "I write Python from first principles: data structures, algorithms and clean CLI programs, often without external libraries so the logic stays visible.",
+      sub: "Python, data analysis, computer vision",
+      body: "I build Python CLI tools and data experiments: a student-club recommender, calorie formulas fitted on Fitbit data and tested against my own Garmin records, and a computer-vision motion-capture prototype in progress.",
     },
     {
       icon: "layout",
       title: "Web Prototyping",
       sub: "PWA, AI-assisted development",
-      body: "I design and ship web prototypes with AI coding tools, focusing on features people would actually use every day.",
+      body: "I design and ship web apps with AI coding tools. Tarseekh, built for a Qur'an app-design competition, has a tajwid reader, highlight-to-ask AI tafsir and SM-2 spaced repetition.",
     },
     {
       icon: "book",
       title: "Research and Writing",
       sub: "Philosophy, Psychology",
-      body: "I study epistemology, philosophy of mind and human behavior, and write essays on identity, freedom and agency.",
+      body: "I study epistemology and philosophy of mind at Universitas Indonesia, alongside psychology coursework. I write paper analyses, a proposal on AI for Indonesian regional languages, and essays on identity, freedom and agency.",
     },
   ],
 
