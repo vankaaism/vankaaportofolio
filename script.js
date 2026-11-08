@@ -38,11 +38,12 @@
         <span class="hi__line">Hi, I'm <span class="hi__avatar">${H.avatar ? `<img src="${esc(H.avatar)}" alt="" />` : `<span>${esc(initial)}</span>`}</span> ${esc(D.name)}!</span>
         <span class="hi__line hi__soft">${esc(H.lead ?? "I'm a")}</span>
         <span class="hi__line">${esc(H.role)} <span class="hi__soft">${esc(H.link ?? "at")}</span></span>
-        <span class="hi__line hi__line--last"><span class="hi__accent">${esc(H.org)}</span>${H.status ? `<span class="hi__status"><i></i>${esc(H.status)}</span>` : ""}</span>
+        <span class="hi__line hi__line--last"><span class="hi__accent">${esc(H.org)}</span></span>
       </h1>
       <p class="sr-only">${esc(D.fullName || "")}. ${esc(D.tagline || "")}</p>
       <div class="hi__cta">
         <p class="hi__note">${esc((H.ctaText || "").replace(/\s*\n\s*/g, " "))}</p>
+        ${H.status ? `<span class="hi__status"><i></i>${esc(H.status)}</span>` : ""}
       </div>
     </div>`;
 
